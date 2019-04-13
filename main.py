@@ -5,6 +5,17 @@ from auth import MiBand3
 from constants import ALERT_TYPES
 import time
 import os
+import socket
+import datetime
+import json
+
+s = socket.socket()
+port = 3114
+s.bind(('', port))
+print "socket binded to %s" %(port)
+
+s.listen(5)
+print "socket is listening"
 
 data_hb=[]
 
@@ -36,7 +47,12 @@ def custom_missed_call():
     band.send_custom_alert(4)
 
 def main(x):
-    data_hb.append(x)
+    data_hb.append(str(x))
+    c, addr = s.accept()
+    print 'Got connection from', addr 
+    c.send(json.dumps({"time":str(datetime.datetime.utcnow()) , "beat":str(x)}))
+    c.close()
+    #data_hb.append(str(x))
 
 def heart_beat():
     band.start_raw_data_realtime(heart_measure_callback=main)

@@ -1,5 +1,23 @@
 /**
-This is to print the tool tip
+
+{
+"beats":0,
+"timestamp":0,
+// Steps taken
+"pedometer":0,
+// Fat burn
+"fatBurn":0,
+// This day burn
+"calories":0,
+// Meter travel
+"travel":0,
+// Last sleep info
+"sleep":0,
+// Speed | Gyro
+"accelaration":0
+}
+
+
 **/
 
 $(document).ready(function(){

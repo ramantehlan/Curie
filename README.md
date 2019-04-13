@@ -34,6 +34,8 @@ A Smart wearable device(Not a sports band), which will track and monitor health 
 
 - Store data on a blockchain. (Public, Private)
 
+- Predict future disease.
+
 ## Development
 
 #### Pre Requisites
@@ -71,7 +73,7 @@ A Smart wearable device(Not a sports band), which will track and monitor health 
 - Harsh Lathwal
 - Shivam Chaudhary
 - Pranav Suri
-- Mason
+- Nikhil Kumar
 
 ## License
 

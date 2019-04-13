@@ -1,5 +1,5 @@
 {
-"beats":0,
+"beats":50,
 "timestamp":0,
 "pedometer":0,
 "fatBurn":0,

@@ -30,18 +30,7 @@ $(document).ready(function(){
     });
   });
 
-  var request = new XMLHttpRequest()
-
-  // Open a new connection, using the GET request on the URL endpoint
-request.open('GET', 'http://127.0.0.1:8081', true)
-
-request.onload = function () {
-  var data = JSON.parse(this.response)
-  console.log(data)
-  }
-
-request.send()
-
+var request = new XMLHttpRequest()
 
   //global configuration
   var legend = {
@@ -225,17 +214,28 @@ request.send()
 
 
    var data = new Array();
-
+/*
    for(var i = 0; i < 12; i++){
       data.push(Math.floor(Math.random() * 1000));
    }
 
+*/
+
    function reload(){
       data.shift();
-      data.push(Math.floor(Math.random() * 1000));
+      // Open a new connection, using the GET request on the URL endpoint
+      request.open('GET', 'http://127.0.0.1:8081', true)
 
-      processing_flow.data.datasets[0].data = data;
-      processing_flow.update(50);
+      request.onload = function () {
+        var res = JSON.parse(this.response)
+        console.log(res)
+        console.log(res["beats"])
+        data.push(res["beats"]);
+        processing_flow.data.datasets[0].data = data;
+        processing_flow.update(50);
+      }
+
+      request.send()
    }
 
    var loop = setInterval(reload , 1000)

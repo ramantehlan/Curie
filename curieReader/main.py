@@ -43,7 +43,7 @@ def main(x):
     #print(str(x))
     data_hb[0] = str(x)
     zx = json.dumps({"time":str(datetime.datetime.utcnow()) , "beat":data_hb[0]}) + "\n"
-    with open("./data.txt",'w') as file:
+    with open("data.txt",'w') as file:
         file.write(str(zx))
     #c, addr = s.accept()
     #print 'Got connection from', addr

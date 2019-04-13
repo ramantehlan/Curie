@@ -4,11 +4,14 @@ from flask import *
 app = Flask(__name__)
 app.route("/")
 
-@app.route("/get",methods=["get"])
+@app.route("/",methods=["get"])
 def get():
-    with open("./data.txt","r") as file:
+    print("inside API")
+    with open("data.txt","r") as file:
         data = file.read()
-    return jsonify(data)
+        print(data)
+        print("Reading Data")
+    return jsonify(data.strip())
 
 if __name__ == "__main__":
 	app.run(host="0.0.0.0" , port=int("8081"), debug=True)

@@ -1,7 +1,8 @@
 <p align="center">
-    <img src="./app/static/img/logo.png" >
+    <img src="./app/static/img/res/mipmap-xhdpi/ic_launcher.png" >
 </p>
 
+<h1 align="center">Curie</h1>
 <h3 align="center">:hospital: :fireworks: :alarm_clock:</h3>
 <h4 align="center">A health monitoring device, which is smart, portable, and cheap.</h4>
 
@@ -38,22 +39,39 @@ A Smart wearable device(Not a sports band), which will track and monitor health 
 
 ## Development
 
+<p align="center">
+    <img src="./app/static/img/architecture.png" >
+</p>
+
 #### Pre Requisites
+
+`To Be Updated`
+
 #### Environment
+
+`To Be Updated`
+
+#### Usage
+
+1. Clone the repostory. `$ git clone https://github.com/xeon-zolt/curie`
+2. Make start script executable. `$ chmod +x ./start`
+3. Execute the script. `$ ./start`
+
 #### File Structure
 
 ```console
 .
-├── assets
-│   └── img
-│       └── logo.png
+├── app
+│   ├── server.py
+│   ├── static
+│   │   └── img
+│   │       └── logo.png
+│   └── templates
+│       └── index.html
 ├── README.md
 ├── requirements.txt
-└── server.py
-
+└── start
 ```
-
-#### Build
 
 ## Contribution
 

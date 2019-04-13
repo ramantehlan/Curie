@@ -402,15 +402,15 @@ class MiBand3(Peripheral):
             char_sensor.write(b'\x02')
             t = time.time()
             while True:
-                #try:
-                self.waitForNotifications(0.5)
-                self._parse_queue()
-                if (time.time() - t) >= 12:
-                    char_ctrl.write(b'\x16', True)
-                    t = time.time()
-                #except KeyboardInterrupt:
-                  #  self.stop_realtime()
-                  #  break
+                try:
+                    self.waitForNotifications(0.5)
+                    self._parse_queue()
+                    if (time.time() - t) >= 12:
+                        char_ctrl.write(b'\x16', True)
+                        t = time.time()
+                except KeyboardInterrupt:
+                    self.stop_realtime()
+                    break
 
     def stop_realtime(self):
             char_m = self.svc_heart.getCharacteristics(UUIDS.CHARACTERISTIC_HEART_RATE_MEASURE)[0]

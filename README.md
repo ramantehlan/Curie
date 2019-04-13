@@ -37,6 +37,8 @@ A Smart wearable device(Not a sports band), which will track and monitor health 
 
 - Predict future disease.
 
+- Connect to alexa and google home. when user is in danger.
+
 ## Development
 
 <p align="center">

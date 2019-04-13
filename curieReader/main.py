@@ -2,22 +2,16 @@ import sys
 from auth import MiBand3
 #from cursesmenu import *
 #from cursesmenu.items import *
-from constants import ALERT_TYPES
+#from constants import ALERT_TYPES
 import time
 import os
 import socket
 import datetime
 import json
-'''
-s = socket.socket()
-port = 3114
-s.bind(('', port))
-print "socket binded to %s" %(port)
+from flask import *
+import threading
 
-s.listen(5)
-print "socket is listening"
-'''
-data_hb=[]
+data_hb=[0]
 
 def call_immediate():
     print 'Sending Call Alert'
@@ -32,10 +26,10 @@ def detail_info():
     print 'Soft revision:',band.get_revision()
     print 'Hardware revision:',band.get_hrdw_revision()
     print 'Serial:',band.get_serial()
-    print 'Battery:', band.get_battery_info()
+    #print 'Battery:', band.get_battery_info()
     print 'Time:', band.get_current_time()
     print 'Steps:', band.get_steps()
-    raw_input('Press Enter to continue')
+    #raw_input('Press Enter to continue')
 def custom_message():
     band.send_custom_alert(5)
 
@@ -47,49 +41,44 @@ def custom_missed_call():
     band.send_custom_alert(4)
 
 def main(x):
-    print(str(x))
-    with open("../beat.txt",'w') as file:
-        file.write(str(x))
-    '''
-    data_hb.append(str(x))
-    c, addr = s.accept()
-    print 'Got connection from', addr 
-    c.send(json.dumps({"time":str(datetime.datetime.utcnow()) , "beat":str(x)}))
-    c.close()
-    '''
+    #print(str(x))
+    data_hb[0] = str(x)
+    zx = json.dumps({"time":str(datetime.datetime.utcnow()) , "beat":data_hb[0]}) + "\n"
+    with open("./beat.txt",'w') as file:
+        file.write(str(zx))
+    #c, addr = s.accept()
+    #print 'Got connection from', addr
+    #c.close()
     #data_hb.append(str(x))
 
-def heart_beat():
-    band.start_raw_data_realtime(heart_measure_callback=main)
-    #raw_input('Press Enter to continue')
 
 def change_date():
     band.change_date()
-MAC_ADDR = sys.argv[1]
-print 'Attempting to connect to ', MAC_ADDR
+
 
 def updateFirmware():
     fileName = raw_input('Enter the file Name with Extension\n')
     band.dfuUpdate(fileName)
 
+def printmenu(MAC_ADDR):
+    print("MAC -", MAC_ADDR)
+
+MAC_ADDR = "D3:C3:10:49:09:D8"
 band = MiBand3(MAC_ADDR, debug=True)
 band.setSecurityLevel(level = "medium")
 
 # Authenticate the MiBand
-if len(sys.argv) > 2:
+if len(sys.argv) > 1:
     if band.initialize():
         print("Initialized...")
-    band.disconnect()
-    sys.exit(0)
+    band.authenticate()
 else:
     band.authenticate()
 
-def printmenu(MAC_ADDR):
-    print("MAC -", MAC_ADDR)
-
+detail_info()
 printmenu(MAC_ADDR)
-#x = input("READY?")
-heart_beat()
+band.start_raw_data_realtime(heart_measure_callback=main)
+
 """
 menu = CursesMenu("MiBand MAC: " + MAC_ADDR, "Select an option")
 detail_menu = FunctionItem("View Band Detail info", detail_info)
@@ -112,4 +101,26 @@ menu.append_item(miss_call_alert)
 menu.append_item(heart_beat_menu)
 menu.append_item(dfu_update_menu)
 menu.show()
+"""
+"""
+app = Flask(__name__)
+app.route("/")
+
+
+def f():
+
+@app.route("/get",methods=["get"])
+def get():
+	#band.start_raw_data_realtime(heart_measure_callback=main)
+	#raw_input('Press Enter to continue')
+	t1 = threading.Thread(target=f)
+	t1.start()
+	return x
+
+
+#f()
+
+if __name__ == "__main__":
+	app.run(host="0.0.0.0" , port=int("8081"), debug=True)
+
 """

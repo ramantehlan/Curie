@@ -7,12 +7,12 @@ app = Flask(__name__, static_folder="dist", template_folder="dist")
 app.secret_key = 'bruce wayne is the mask'
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
-@app.route('/api/api', methods=['POST'])
-def some_api():
-    input = request.form.get("input")
-    if not input:
-        return jsonify({"status": 0, "message": "no input"})
-    return jsonify(call a function)
+#@app.route('/api/api', methods=['POST'])
+#def some_api():
+#    input = request.form.get("input")
+#    if not input:
+#        return jsonify({"status": 0, "message": "no input"})
+#    return jsonify(call a function)
 
 app.route('/', defaults={'path': ''})
 

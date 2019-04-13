@@ -8,7 +8,7 @@ import os
 import socket
 import datetime
 import json
-
+'''
 s = socket.socket()
 port = 3114
 s.bind(('', port))
@@ -16,7 +16,7 @@ print "socket binded to %s" %(port)
 
 s.listen(5)
 print "socket is listening"
-
+'''
 data_hb=[]
 
 def call_immediate():
@@ -47,11 +47,16 @@ def custom_missed_call():
     band.send_custom_alert(4)
 
 def main(x):
+    print(str(x))
+    with open("../beat.txt",'w') as file:
+        file.write(str(x))
+    '''
     data_hb.append(str(x))
     c, addr = s.accept()
     print 'Got connection from', addr 
     c.send(json.dumps({"time":str(datetime.datetime.utcnow()) , "beat":str(x)}))
     c.close()
+    '''
     #data_hb.append(str(x))
 
 def heart_beat():

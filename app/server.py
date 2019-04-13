@@ -23,18 +23,14 @@ app.route('/', defaults={'path': ''})
 
 @app.route("/get/v1",methods=["get"])
 def grt_v1():
-    print('in api')
-    s = socket.socket()
-    port = 6969
-    s.connect(('10.1.2.233',port))
-    print('connected')
-    da = json.loads(s.recv(1024).decode('ascii'))
-    #s.close()
+    with open("../beat.txt",r) as file:
+        da = file.read()
+        print(da)
     return json.dumps(da)
 
 @app.route('/')
 def home():
-    return render_template('index.html', data=da)
+    return render_template('index.html', data="abc")
 
 
 if __name__ == "__main__":

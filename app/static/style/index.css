@@ -2,7 +2,7 @@
   /* Color */
   --primary: #2708a0;
   --primaryText: #FFFFFF;
-  --background: #efefef;
+  --background: #C7DCED;
   --card: #ffffff;
   --backgroundText: #000000;
   --backgroundText1: rgba(0, 0, 0, 0.8);
@@ -21,10 +21,10 @@ html{
        min-width:1000px;
        max-width:100%;
        margin:0px;
-       font-size:15px;
-       font-family:roboto-r;
-       color:#eeeeee;
-       background-color:#C7DCED;
+       font-size:var(--body-size);
+       font-family:roboto;
+       color:var(--backgroundText);
+       background-color:var(--background);
 }
 
 body{
@@ -37,11 +37,11 @@ body{
 start of body display
 ****************************************/
 
-.box_body{background-color:white;
+.box_body{background-color:var(--card);
+          color:var(--cardText);
          padding:30px;
          border-radius:5px;
          box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
-         color:#754C4E;
        }
 
 .box_body_top{height:30px;
@@ -50,7 +50,7 @@ start of body display
 }
 
 .box_heading{font-size:18px;
-        font-family:roboto-t;
+        font-family:roboto;
         font-weight:bold;
         height:30px;
         line-height:30px;
@@ -58,8 +58,7 @@ start of body display
         text-align:left;
         color:#583854;
         float:left;
-
-            }
+}
 
 .box_heading img{margin-bottom:-10px;
            margin-right:10px;
@@ -138,7 +137,7 @@ APP
 		   float:left;
 		   margin-left:20px;
 		   font-size:16px;
-		   font-family:gotham-l;
+		   font-family:roboto;
 		   color:#9299B2;
 
 }
@@ -156,7 +155,7 @@ APP
 					background-color:#4A73DB;
 					color:white;
 					font-size:12px;
-					font-family:gotham-l;
+					font-family:roboto;
 					border-radius:50px;
 					box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
 
@@ -280,121 +279,6 @@ APP
 				font-size:14px;
 }
 
-
-/******************8
-Upload_form
-****************/
-
-.form{
-	background-color:#fff;
-	border-radius:3px;
-	padding:20px;
-	width:400px;
-	margin:0px auto;
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
-    color:#754C4E;
-}
-
-.form_heading{font-size:18px;
-			font-family: gotham-l;
-			font-weight:bold;
-			text-align:center;
-}
-
-
-.form_body{
-			margin-top:40px;
-}
-
-
-
-.input{width:100%;
-		height:30px;
-		line-height:30px;
-		border-radius:3px;
-}
-
-.submit{
-                height:40px;
-                padding-left:30px;
-                padding-right:30px;
-                background-color:#5e96dc;
-                border:0px;
-                border-radius:3px;
-                -moz-border-radius:3px;
-                -webkit-border-radius:3px;
-                font-size:14px;
-                font-weight:bold;
-                cursor:pointer;
-                display:inline-block;
-                color:#BAE9FF;
-                outline:none;
-                transition: all .2s ease;
-                font-family:quicksand-b;
-                margin:0px auto;
-                margin-top:20px;
-}
-
-.submit:hover {
-                background-color:#456EA1;
-                outline:none;
-}
-
-.submit:active {
-  position:relative;
-  top:1px;
-}
-
-
-
-#progress_bar{border:0px;
-			 border-radius:3px 3px 0px 0px;
-			 height:25px;
-			 margin:-20px;
-			 margin-bottom:20px;
-			 background-color:#B5DBFF;
-			 display:none;
-	}
-
-
-#progress_bar .progress-label{position:absolute;
-							  line-height:25px;
-							  width:440px;
-							  text-align:center;
-							  font-size:12px;
-							  color:white;
-}
-
- #progress_bar .ui-progressbar-value {
-    background-color: #FF9505;
-    border-radius:3px 3px 0px 0px;
-    border:0px;
-   }
-
-.error_box{position:absolute;
-		   right:0%;
-		   bottom:0%;
-		   margin-right:60px;
-		   margin-bottom:30px;
-		   padding:15px;
-		   border-radius:5px;
-		   background-color:#56351E;
-		   color:white;
-		   display:none;
-}
-
-.success_box{position:absolute;
-		   right:0%;
-		   bottom:0%;
-		   margin-right:60px;
-		   margin-bottom:30px;
-		   padding:15px;
-		   border-radius:5px;
-		   background-color:#2660A4;
-		   color:white;
-		   display:none;
-}
-
 /******************************************************************
 Left Menu
 ******************************************************************/
@@ -405,7 +289,7 @@ Left Menu
 	z-index:99;
 	width:60px;
 	height:100%;
-	background-color:#291A4D;
+	background-color:var();
 	background:linear-gradient(90deg, #291A4D, #291A41);
 	box-shadow: 2px 0px 2px 0px rgba(0,0,0,0.10);
 }
@@ -417,10 +301,10 @@ Left Menu
 						background:#4A73DB;
 }
 
-.left_logo img{width:24px;
-			  height:24px;
-			  margin-left:18px;
-			  margin-top:13px;
+.left_logo img{width:34px;
+			  height:34px;
+			  margin-left:12px;
+			  margin-top:8px;
 }
 
 .leftmenu_body{
@@ -479,7 +363,8 @@ Left Menu
           padding-right:10px;
           background-color:#000000/*#330C2F*/;
           color:#000;
-          font-family:quicksand-b;
+          font-family:roboto;
+          font-weight:bold;
           border-radius:3px;
           white-space:nowrap;
 }

@@ -24,7 +24,7 @@ $(document).ready(function(){
                       fontSize: 12,
                       fontStyle: "normal",
                       fontColor: "#6B6157",
-                      fontFamily: "roboto-r",
+                      fontFamily: "roboto",
                       padding: 15,
                   },
               reverse: false
@@ -43,7 +43,7 @@ $(document).ready(function(){
               position: 'top',
               fullWidth: true,
               fontSize: 14,
-              fontFamily: "roboto-r",
+              fontFamily: "roboto",
               fontColor: "#000000",
               fontStyle: "bold",
               padding: 20,
@@ -114,13 +114,13 @@ $(document).ready(function(){
                     intersect: true,
                     position: 'average', //nearest or average
                     backgroundColor: '#000',
-                    titleFontFamily: 'roboto-r',
+                    titleFontFamily: 'roboto',
                     titleFontSize: 12,
                     titleFontStyle: 'bold',
                     titleFontColor: '#fff',
                     titleSpacing: 0,
                     titleMarginBottom: 5,
-                    bodyFontFamily: 'roboto-r',
+                    bodyFontFamily: 'roboto',
                     bodyFontSize: 13,
                     bodyFontStyle: 'normal',
                     bodyFontColor: '#f4f4f4',
@@ -155,13 +155,13 @@ $(document).ready(function(){
                         intersect: true,
                         position: 'average', //nearest or average
                         backgroundColor: '#000',
-                        titleFontFamily: 'roboto-r',
+                        titleFontFamily: 'roboto',
                         titleFontSize: 12,
                         titleFontStyle: 'bold',
                         titleFontColor: '#fff',
                         titleSpacing: 0,
                         titleMarginBottom: 5,
-                        bodyFontFamily: 'roboto-r',
+                        bodyFontFamily: 'roboto',
                         bodyFontSize: 13,
                         bodyFontStyle: 'normal',
                         bodyFontColor: '#f4f4f4',
@@ -212,7 +212,7 @@ $(document).ready(function(){
 
   //for font
   Chart.defaults.global.defaultFontColor = "#ADADAD";
-  Chart.defaults.global.defaultFontFamily = "roboto-r";
+  Chart.defaults.global.defaultFontFamily = "roboto";
   Chart.defaults.global.defaultFontSize = 12;
   Chart.defaults.global.defaultFontStyle = "normal";
 

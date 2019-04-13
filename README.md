@@ -87,11 +87,11 @@ A Smart wearable device(Not a sports band), which will track and monitor health 
 
 ## Credit
 
-- Raman Tehlan
-- Harsh Lathwal
-- Shivam Chaudhary
-- Pranav Suri
-- Nikhil Kumar
+- Raman Tehlan (Full-Stack Engineer)
+- Harsh Lathwal (Software Engineer)
+- Pranav Suri (Machine Learning and AI Engineer)
+- Shivam Chaudhary (Hardware Engineer)
+- Nikhil Kumar (Hardware Engineer)
 
 ## License
 

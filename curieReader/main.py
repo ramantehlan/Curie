@@ -10,6 +10,8 @@ import datetime
 import json
 from flask import *
 
+# ^c twice to exit the main() ._.
+
 data_hb=[0]
 
 def call_immediate():
@@ -40,10 +42,10 @@ def custom_missed_call():
     band.send_custom_alert(4)
 
 def main(x):
-    #print(str(x))
+    print(str(x))
     data_hb[0] = str(x)
-    zx = json.dumps({"time":str(datetime.datetime.utcnow()) , "beat":data_hb[0]}) + "\n"
-    with open("data.txt",'w') as file:
+    zx = json.dumps({"time":str(datetime.datetime.utcnow()) , "beats":data_hb[0]}) + "\n"
+    with open("heart_data.txt",'w') as file:
         file.write(str(zx))
     #c, addr = s.accept()
     #print 'Got connection from', addr
@@ -63,6 +65,7 @@ def printmenu(MAC_ADDR):
     print("MAC -", MAC_ADDR)
 
 MAC_ADDR = "D3:C3:10:49:09:D8"
+#MAC_ADDR = "F9:AE:E3:E7:D2:95"
 band = MiBand3(MAC_ADDR, debug=True)
 band.setSecurityLevel(level = "medium")
 
@@ -76,7 +79,18 @@ else:
 
 detail_info()
 printmenu(MAC_ADDR)
-band.start_raw_data_realtime(heart_measure_callback=main)
+try:
+    while True:
+        band.start_raw_data_realtime(heart_measure_callback=main,mason=20)
+        with open("other_data.txt","w") as file:
+            a = str(band.get_steps())
+            a += "\n"
+            file.write(a)
+
+except KeyboardInterrupt:
+    band.stop_realtime()
+    band.disconnect()
+#print band.get_steps()
 
 """
 menu = CursesMenu("MiBand MAC: " + MAC_ADDR, "Select an option")

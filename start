@@ -2,6 +2,6 @@
 
 #$ sudo apt-get install python-pip libglib2.0-dev
 #$ sudo pip install bluepy
-
+python2 ./curieReader/main.py --init &
 python3 ./curieReader/server.py &
 python3 ./app/server.py &

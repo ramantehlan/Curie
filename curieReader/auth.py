@@ -9,6 +9,7 @@ import crc16
 import os
 import struct
 
+
 from constants import UUIDS, AUTH_STATES, ALERT_TYPES, QUEUE_TYPES
 
 
@@ -283,8 +284,8 @@ class MiBand3(Peripheral):
         return {
             "steps": steps,
             "meters": meters,
-            "fat_gramms": fat_gramms,
-            "callories": callories
+            "fat": fat_gramms,
+            "cal": callories
         }
 
     def send_alert(self, _type):
@@ -377,12 +378,12 @@ class MiBand3(Peripheral):
             char.write('\x05', withResponse=True)
         print('Update Complete')
         raw_input('Press Enter to Continue')
-    def start_raw_data_realtime(self, heart_measure_callback=None, heart_raw_callback=None, accel_raw_callback=None):
+    def start_raw_data_realtime(self, heart_measure_callback=None, heart_raw_callback=None, accel_raw_callback=None,mason=5):
             char_m = self.svc_heart.getCharacteristics(UUIDS.CHARACTERISTIC_HEART_RATE_MEASURE)[0]
             char_d = char_m.getDescriptors(forUUID=UUIDS.NOTIFICATION_DESCRIPTOR)[0]
             char_ctrl = self.svc_heart.getCharacteristics(UUIDS.CHARACTERISTIC_HEART_RATE_CONTROL)[0]
             #print "DEBUG1"
-
+            
             if heart_measure_callback:
                 self.heart_measure_callback = heart_measure_callback
             if heart_raw_callback:
@@ -390,9 +391,10 @@ class MiBand3(Peripheral):
             if accel_raw_callback:
                 self.accel_raw_callback = accel_raw_callback
             
-            #self.heart_raw_callback = heart_raw_callback
-            char_sensor = self.svc_1.getCharacteristics(UUIDS.CHARACTERISTIC_SENSOR)[0]
 
+            
+            #self.heart_measure_callback = self.mason
+            char_sensor = self.svc_1.getCharacteristics(UUIDS.CHARACTERISTIC_SENSOR)[0]
             # stop heart monitor continues & manual
             char_ctrl.write(b'\x15\x02\x00', True)
             char_ctrl.write(b'\x15\x01\x00', True)
@@ -401,13 +403,18 @@ class MiBand3(Peripheral):
             char_ctrl.write(b'\x15\x01\x01', True)
             char_sensor.write(b'\x02')
             t = time.time()
-            while True:
+            #n=t
+            for zzz in range(mason):
                 try:
-                    self.waitForNotifications(0.5)
+                    #if (time.time() - n) <= 10:
+                    self.waitForNotifications(2)
                     self._parse_queue()
-                    if (time.time() - t) >= 12:
+                    if (time.time() - t) >= 5:
                         char_ctrl.write(b'\x16', True)
                         t = time.time()
+                    #else:
+                    #    self.start_raw_data_realtime()
+                    #    #nk = time.time()
                 except KeyboardInterrupt:
                     self.stop_realtime()
                     break

@@ -63,6 +63,7 @@ start of body display
 .box_heading img{margin-bottom:-10px;
            margin-right:10px;
            background-color:#CA3CFF;
+           color:white;
            background:linear-gradient(60deg, #CA3CFF, #9C2FC4);
            padding:20px;
            border-radius:5px;
@@ -229,13 +230,13 @@ APP
 
 .cards:first-child{margin-left:0px;}
 
-.heading_total img{background:linear-gradient(60deg, #6C91C2, #6C28D9);}
-.heading_active img{background:linear-gradient(60deg, #A49966, #A4A11C);}
-.heading_processing img{background:linear-gradient(60deg, #B4656F, #7C454D);}
-.heading_tasks img{background:linear-gradient(60deg, #ffa726, #D37400);}
-.heading_complete img{background:linear-gradient(60deg, #1F01B9 , #170187);}
-.heading_used img{background:linear-gradient(60deg, #F1A208 , #C68605);}
-.heading_real img{background:linear-gradient(60deg, #FC440F , #D1370C);}
+.heading_1 img{background:linear-gradient(60deg, #6C91C2, #6C28D9);}
+.heading_2 img{background:linear-gradient(60deg, #A49966, #A4A11C);}
+.heading_3 img{background:linear-gradient(60deg, #B4656F, #7C454D);}
+.heading_4 img{background:linear-gradient(60deg, #463239, #21171a);}
+.heading_5 img{background:linear-gradient(60deg, #1F01B9 , #170187);}
+.heading_6 img{background:linear-gradient(60deg, #fde74c , #ccbb3d);}
+.heading_7 img{background:linear-gradient(60deg, #FC440F , #D1370C);}
 
 .small_head img{margin-left:-15px;}
 .small_head {font-size:16px;}

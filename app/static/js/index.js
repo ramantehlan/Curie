@@ -76,7 +76,7 @@ $(document).ready(function(){
                       fontSize:11,
                       fontColor:'#777777',
                       callback: function(label, index, labels) {
-                          return label +' GB';
+                          return label;
 
                       }
                  },
@@ -184,7 +184,7 @@ $(document).ready(function(){
                                 label: function(tooltipItem, data) {
                                 var label = data.datasets[tooltipItem.datasetIndex].label;
                                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                                return value + " GB";
+                                return value;
                                 }
                            }
               };

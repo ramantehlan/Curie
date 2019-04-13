@@ -2,20 +2,23 @@ import sys
 from auth import MiBand3
 #from cursesmenu import *
 #from cursesmenu.items import *
-from constants import ALERT_TYPES
+#from constants import ALERT_TYPES
 import time
 import os
 import socket
 import datetime
 import json
+from flask import *
 
-s = socket.socket()
-port = 3114
-s.bind(('', port))
-print "socket binded to %s" %(port)
+app = Flask(__name__)
+app.route("/")
 
-s.listen(5)
-print "socket is listening"
+@app.route("/get",methods=["get"])
+def get():
+    return jsonify({'hello':0})
+    band.start_raw_data_realtime(heart_measure_callback=main)
+    #raw_input('Press Enter to continue')
+
 
 data_hb=[]
 
@@ -49,14 +52,11 @@ def custom_missed_call():
 def main(x):
     data_hb.append(str(x))
     c, addr = s.accept()
-    print 'Got connection from', addr 
+    print 'Got connection from', addr
     c.send(json.dumps({"time":str(datetime.datetime.utcnow()) , "beat":str(x)}))
     c.close()
     #data_hb.append(str(x))
 
-def heart_beat():
-    band.start_raw_data_realtime(heart_measure_callback=main)
-    #raw_input('Press Enter to continue')
 
 def change_date():
     band.change_date()
@@ -84,7 +84,7 @@ def printmenu(MAC_ADDR):
 
 printmenu(MAC_ADDR)
 #x = input("READY?")
-heart_beat()
+
 """
 menu = CursesMenu("MiBand MAC: " + MAC_ADDR, "Select an option")
 detail_menu = FunctionItem("View Band Detail info", detail_info)
@@ -108,3 +108,7 @@ menu.append_item(heart_beat_menu)
 menu.append_item(dfu_update_menu)
 menu.show()
 """
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0" , port=int("8081"), debug=True)

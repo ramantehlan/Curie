@@ -91,7 +91,7 @@ A Smart wearable device(Not a sports band), which will track and monitor health 
 - Harsh Lathwal (Software Engineer)
 - Pranav Suri (Machine Learning and AI Engineer)
 - Shivam Chaudhary (Hardware Engineer)
-- Nikhil Kumar (Hardware Engineer)
+- Nikhil Kumar (Hardware Reverse Engineer)
 
 ## License
 

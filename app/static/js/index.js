@@ -13,10 +13,17 @@
 "travel":0,
 // Last sleep info
 "sleep":0,
-// Speed | Gyro
-"accelaration":0
 }
 
+gender
+age
+smoker
+no of cig per day
+dibatic
+systoric and dystorinc
+height
+weight
+heart rate
 
 **/
 

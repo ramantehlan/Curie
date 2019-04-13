@@ -5,6 +5,5 @@
 "fatBurn":0,
 "calories":0,
 "travel":0,
-"sleep":0,
-"accelaration":0
+"sleep":0
 }

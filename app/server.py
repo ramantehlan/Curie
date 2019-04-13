@@ -4,6 +4,7 @@ from uuid import uuid4
 import datetime
 import socket
 import time
+import json
 
 app = Flask(__name__,)
 # app.secret_key = 'bruce wayne is the mask'
@@ -18,16 +19,23 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 app.route('/', defaults={'path': ''})
 
-s = socket.socket()
-port = 3114
-s.connect(('127.0.0.1',port))
 
+
+@app.route("/get/v1",methods=["get"])
+def grt_v1():
+    print('in api')
+    s = socket.socket()
+    port = 6969
+    s.connect(('10.1.2.233',port))
+    print('connected')
+    da = json.loads(s.recv(1024).decode('ascii'))
+    #s.close()
+    return json.dumps(da)
 
 @app.route('/')
 def home():
-    return render_template('index.html', data=s.recv(1024))
+    return render_template('index.html', data=da)
 
-s.close()
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

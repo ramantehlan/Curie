@@ -9,7 +9,6 @@ import socket
 import datetime
 import json
 from flask import *
-import threading
 
 data_hb=[0]
 
@@ -44,7 +43,7 @@ def main(x):
     #print(str(x))
     data_hb[0] = str(x)
     zx = json.dumps({"time":str(datetime.datetime.utcnow()) , "beat":data_hb[0]}) + "\n"
-    with open("./beat.txt",'w') as file:
+    with open("./data.txt",'w') as file:
         file.write(str(zx))
     #c, addr = s.accept()
     #print 'Got connection from', addr
@@ -101,26 +100,4 @@ menu.append_item(miss_call_alert)
 menu.append_item(heart_beat_menu)
 menu.append_item(dfu_update_menu)
 menu.show()
-"""
-"""
-app = Flask(__name__)
-app.route("/")
-
-
-def f():
-
-@app.route("/get",methods=["get"])
-def get():
-	#band.start_raw_data_realtime(heart_measure_callback=main)
-	#raw_input('Press Enter to continue')
-	t1 = threading.Thread(target=f)
-	t1.start()
-	return x
-
-
-#f()
-
-if __name__ == "__main__":
-	app.run(host="0.0.0.0" , port=int("8081"), debug=True)
-
 """

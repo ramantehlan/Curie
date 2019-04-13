@@ -3,8 +3,8 @@ from flask_cors import CORS
 from uuid import uuid4
 import datetime
 
-app = Flask(__name__, static_folder="dist", template_folder="dist")
-app.secret_key = 'bruce wayne is the mask'
+app = Flask(__name__,)
+# app.secret_key = 'bruce wayne is the mask'
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 #@app.route('/api/api', methods=['POST'])

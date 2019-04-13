@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./assets/img/logo.png" >
+    <img src="./app/static/img/logo.png" >
 </p>
 
 <h3 align="center">:hospital: :fireworks: :alarm_clock:</h3>

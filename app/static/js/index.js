@@ -12,6 +12,19 @@ $(document).ready(function(){
     });
   });
 
+  var request = new XMLHttpRequest()
+
+  // Open a new connection, using the GET request on the URL endpoint
+request.open('GET', 'http://127.0.0.1:8081', true)
+
+request.onload = function () {
+  var data = JSON.parse(this.response)
+  console.log(data)
+  }
+
+request.send()
+
+
   //global configuration
   var legend = {
               display: true,

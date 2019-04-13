@@ -1,17 +1,16 @@
 import json
+from flask_cors import CORS
 from flask import *
 
 app = Flask(__name__)
-app.route("/")
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route("/",methods=["get"])
 def get():
     print("inside API")
-    with open("data.txt","r") as file:
+    with open("./curieReader/data.txt","r") as file:
         data = file.read()
-        print(data)
-        print("Reading Data")
-    return jsonify(data.strip())
+    return jsonify(json.loads(data))
 
 if __name__ == "__main__":
 	app.run(host="0.0.0.0" , port=int("8081"), debug=True)

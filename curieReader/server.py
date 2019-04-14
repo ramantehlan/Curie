@@ -1,6 +1,9 @@
 import json
 from flask_cors import CORS
 from flask import *
+import pickel
+from sklearn.externals import joblib
+import pandas as pd
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
@@ -14,7 +17,14 @@ def get():
         data2 = json.loads(file2.read())
     with open("./sensors/ecgdata.txt") as file3:
         data3 = file3.read().split(" ")
-    mergedDate = {'heart': data, 'other': data2, 'analog_read': data3[0], 'bpm': data3[1].strip()}
+    
+    df = pd.DataFrame([[1, 24, 1, 6, 0, 1, 0, 140, 90, 23, data['beats']]],columns=['male','age','currentSmoker','cigsPerDay','BPMeds','prevalentHyp','diabetes','sysBP','diaBP','BMI','heartRate'])
+    loaded_model = None
+    with open('../model.pickle','rb') as f:
+        loaded_model = pickle.load(f)
+    predection = loaded_model.predict(df)
+    mergedDate = {'heart': data, 'other': data2, 'analog_read': data3[0], 'bpm': data3[1].strip(), 'predection':predection}
+
     return jsonify(mergedDate)
 
 if __name__ == "__main__":

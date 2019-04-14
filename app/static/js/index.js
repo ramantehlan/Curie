@@ -220,13 +220,25 @@ var request = new XMLHttpRequest()
    }
 
 
-   var data = new Array();
+
 /*
    for(var i = 0; i < 12; i++){
       data.push(Math.floor(Math.random() * 1000));
    }
 
 */
+
+var noOfBeats = 0
+var data = new Array();
+
+
+function avg(arr){
+  var sum = 0;
+  for( var i = 0; i < arr.length; i++ ){
+      sum = sum + parseInt(arr[i],10); //don't forget to add the base
+  }
+  return sum/arr.length;
+}
 
    function reload(){
       if(data.length > 12){
@@ -238,14 +250,27 @@ var request = new XMLHttpRequest()
       request.onload = function () {
         var res = JSON.parse(this.response)
         console.log(res)
-        console.log(res["beats"])
-        data.push(res["beats"]);
+
+
+
+
+        if(res["heart"]["beats"] != data[11]){
+        data.push(res["heart"]["beats"]);
+
+        $("#AverageHeartbeat").html(avg(data));
+        $("#NoOfReading").html(noOfBeats);
+        $("#pedometer").html(res["other"]["steps"] + " Steps")
+        $("#fat").html(res["other"]["fat"] + " Gram")
+        $("#calories").html(res["other"]["cal"] + " Calories")
+        $("#travel").html(res["other"]["meters"] + " Meter")
+
         processing_flow.data.datasets[0].data = data;
         processing_flow.update(50);
       }
-
-      request.send()
    }
+   request.send()
+   noOfBeats++
+ }
 
    var loop = setInterval(reload , 1000)
 
@@ -275,9 +300,9 @@ var request = new XMLHttpRequest()
           labels:["","","","","","","","","","","",""],
           datasets: [{
               type:"line",
-              label: "Real-Time Processing",
+              label: "Heartbeats",
               data: data,
-              fill: true,
+              fill: false,
               backgroundColor: "#563F1B",
               lineTension: 0.2,
               borderWidth:0,

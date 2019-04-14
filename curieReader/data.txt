@@ -1,9 +1,0 @@
-{
-"beats":50,
-"timestamp":0,
-"pedometer":0,
-"fatBurn":0,
-"calories":0,
-"travel":0,
-"sleep":0
-}

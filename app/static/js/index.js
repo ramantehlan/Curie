@@ -229,7 +229,9 @@ var request = new XMLHttpRequest()
 */
 
    function reload(){
-      data.shift();
+      if(data.length > 12){
+        data.shift();
+      }
       // Open a new connection, using the GET request on the URL endpoint
       request.open('GET', 'http://127.0.0.1:8081', true)
 

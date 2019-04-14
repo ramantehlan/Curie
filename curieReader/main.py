@@ -45,7 +45,7 @@ def main(x):
     print(str(x))
     data_hb[0] = str(x)
     zx = json.dumps({"time":str(datetime.datetime.utcnow()) , "beats":data_hb[0]}) + "\n"
-    with open("heart_data.txt",'w') as file:
+    with open("./curieReader/heart_data.txt",'w') as file:
         file.write(str(zx))
     #c, addr = s.accept()
     #print 'Got connection from', addr
@@ -82,7 +82,7 @@ printmenu(MAC_ADDR)
 try:
     while True:
         band.start_raw_data_realtime(heart_measure_callback=main,mason=20)
-        with open("other_data.txt","w") as file:
+        with open("./curieReader/other_data.txt","w") as file:
             a = str(band.get_steps())
             a += "\n"
             file.write(a)

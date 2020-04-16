@@ -47,13 +47,13 @@ A Smart wearable device(Not a sports band), which will track and monitor health 
 2. Make start script executable. `$ chmod +x ./start`
 3. Execute the script. `$ ./start`
 
-## Credit
+## Team
 
-- Raman Tehlan (Full-Stack Engineer)
-- Harsh Lathwal (Software Engineer)
-- Pranav Suri (Machine Learning and AI Engineer)
-- Shivam Chaudhary (Hardware Engineer)
-- Nikhil Kumar (Hardware Reverse Engineer)
+- [Raman Tehlan](https://github.com/ramantehlan) [Full-Stack Engineer]
+- [Harsh Lathwal](https://github.com/xeon-zolt) [Software Engineer]
+- [Pranav Suri](https://github.com/pranavsuri) [Machine Learning Engineer]
+- [Shivam Chaudhary](https://github.com/cvam0000) [Hardware Engineer]
+- [Nikhil Kumar](https://github.com/nk521) [Hardware Reverse Engineer]
 
 ## License
 

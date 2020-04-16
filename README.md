@@ -43,7 +43,7 @@ A Smart wearable device(Not a sports band), which will track and monitor health 
 
 #### Usage
 
-1. Clone the repostory. `$ git clone https://github.com/xeon-zolt/curie`
+1. Clone the repostory. `$ git clone https://github.com/ramantehlan/curie`
 2. Make start script executable. `$ chmod +x ./start`
 3. Execute the script. `$ ./start`
 

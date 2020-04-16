@@ -9,15 +9,11 @@
 1. [Problem](#about)
 2. [Solution](#usage)
 3. [Development](#development)
-    1. [Pre Requisites](#pre-requisites)
-    2. [Environment](#environment)
-    2. [File Structure](#file-structure)
-    3. [Build](#build)
-4. [Contribution](#contribution)
-5. [Resources](#resources)
-6. [Gallery](#gallery)
-7. [Credit](#credit)
-8. [License](#license)
+    1. [Usage](#usage)
+4. [Credit](#credit)
+5. [License](#license)
+
+> This project was developed during the [Ultrahack Delhi - 2019](https://ultrahack.org/hackdelhi2019/hack-delhi)
 
 ## Problem
 
@@ -45,47 +41,11 @@ A Smart wearable device(Not a sports band), which will track and monitor health 
     <img src="./app/static/img/architecture.png" >
 </p>
 
-#### Pre Requisites
-
-`To Be Updated`
-
-#### Environment
-
-`To Be Updated`
-
 #### Usage
 
 1. Clone the repostory. `$ git clone https://github.com/xeon-zolt/curie`
 2. Make start script executable. `$ chmod +x ./start`
 3. Execute the script. `$ ./start`
-
-#### File Structure
-
-```console
-.
-├── app
-│   ├── server.py
-│   ├── static
-│   │   └── img
-│   │       └── logo.png
-│   └── templates
-│       └── index.html
-├── README.md
-├── requirements.txt
-└── start
-```
-
-## Contribution
-
-`To Be Updated`
-
-## Resources
-
-`To Be Updated`
-
-## Gallery
-
-`To Be Updated`
 
 ## Credit
 
@@ -97,4 +57,5 @@ A Smart wearable device(Not a sports band), which will track and monitor health 
 
 ## License
 
-Proprietary (For Now)
+MIT
+
